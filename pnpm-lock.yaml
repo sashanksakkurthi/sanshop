@@ -23,10 +23,10 @@ specifiers:
   typescript: 4.8.3
 
 dependencies:
-  '@next-auth/prisma-adapter': 1.0.4_bwhncj256yar2zz55r2fl3abo4
+  '@next-auth/prisma-adapter': 1.0.4_bp3cflkd5qiqgw7y4crdr7i7dq
   '@prisma/client': 4.3.1_prisma@4.3.1
   next: 12.3.0_biqbaboplfbrettd7655fr4n2y
-  next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
+  next-auth: 4.12.0_c3hne4hwj64hb7tofigd3bvkji
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.4.0_react@18.2.0
@@ -103,14 +103,14 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@next-auth/prisma-adapter/1.0.4_bwhncj256yar2zz55r2fl3abo4:
+  /@next-auth/prisma-adapter/1.0.4_bp3cflkd5qiqgw7y4crdr7i7dq:
     resolution: {integrity: sha512-jIOM6CzCbl2/Mzbx9kb2IjtHoJOeRN9wtQgLk4EUm5bhneSVGv1rtz5TDskvp2UfCa+EK9nDmug+lje41z80Gg==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3'
       next-auth: ^4
     dependencies:
       '@prisma/client': 4.3.1_prisma@4.3.1
-      next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
+      next-auth: 4.12.0_c3hne4hwj64hb7tofigd3bvkji
     dev: false
 
   /@next/env/12.3.0:
@@ -628,8 +628,8 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
-  /cookie/0.4.2:
-    resolution: {integrity: sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==}
+  /cookie/0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -1570,10 +1570,11 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-auth/4.10.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-7zc4aXYc/EEln7Pkcsn21V1IevaTZsMLJwapfbnKA4+JY0+jFzWbt5p/ljugesGIrN4VOZhpZIw50EaFZyghJQ==}
+  /next-auth/4.12.0_c3hne4hwj64hb7tofigd3bvkji:
+    resolution: {integrity: sha512-TqNJBsVavN60ZkZmoe/YZ13qODuMeXxGgVkpbf8ukB8S7KPKxm+zZPPY76vtTppbPFl6PqFIxzEhNodB2nDStg==}
     engines: {node: ^12.19.0 || ^14.15.0 || ^16.13.0}
     peerDependencies:
+      next: 12.2.5
       nodemailer: ^6.6.5
       react: ^17.0.2 || ^18
       react-dom: ^17.0.2 || ^18
@@ -1583,8 +1584,9 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       '@panva/hkdf': 1.0.2
-      cookie: 0.4.2
+      cookie: 0.5.0
       jose: 4.9.3
+      next: 12.3.0_biqbaboplfbrettd7655fr4n2y
       oauth: 0.9.15
       openid-client: 5.1.9
       preact: 10.11.0

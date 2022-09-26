@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { FiMenu } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
-import { MenuContext } from "../../../context/MenuContext";
 
 export const Logo = () => {
   return (
@@ -11,18 +10,18 @@ export const Logo = () => {
   );
 };
 
-export default Logo;
-
-export const MenuButton = () => {
-  const { openMenu, setOpenMenu }: any = useContext(MenuContext);
+export const MenuButton = (props: {
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  isMenuOpen: boolean;
+}) => {
   return (
     <button
-      className="block md:hidden"
+      className=""
       onClick={() => {
-        setOpenMenu(!openMenu);
+        props.setIsMenuOpen(!props.isMenuOpen);
       }}
     >
-      {openMenu ? (
+      {props.isMenuOpen ? (
         <MdOutlineClose className="text-gray-500" size={25} />
       ) : (
         <FiMenu className="text-gray-500" size={25} />

@@ -26,7 +26,8 @@ export const SearchBar = () => {
           SetIsSearch(e.target.value.toLowerCase());
         }}
         onInput={ApplyFilter}
-        className="w-full rounded-md bg-neutral-900 py-1 pl-2 pr-8 font-inter font-normal text-gray-300 caret-gray-300 focus:outline-none focus:ring-1 focus:ring-pink-500"
+        className="w-full rounded-md bg-neutral-900 py-1 pl-2 pr-8 font-inter font-normal 
+        text-gray-300 caret-gray-300 focus:outline-none focus:ring-1 focus:ring-pink-500"
       />
       {isSearch ? (
         <div className="absolute top-10 h-72 w-full rounded-md bg-neutral-900">
@@ -35,7 +36,8 @@ export const SearchBar = () => {
               <a
                 href={value.link}
                 key={value.productName}
-                className="flex w-full items-center justify-between border-b border-neutral-700 p-2 font-inter font-medium text-gray-300 hover:bg-neutral-800"
+                className="flex w-full items-center justify-between border-b border-neutral-700 
+                p-2 font-inter font-medium text-gray-300 hover:bg-neutral-800"
               >
                 {value.productName}
                 <BsArrowReturnLeft />
@@ -47,4 +49,3 @@ export const SearchBar = () => {
     </div>
   );
 };
-
