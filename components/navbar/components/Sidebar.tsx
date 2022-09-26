@@ -9,26 +9,8 @@ import {
 } from "react-icons/gi";
 import { MdSportsBasketball, MdOutlineLuggage } from "react-icons/md";
 import { BsMusicPlayer } from "react-icons/bs";
-import { MenuContext } from "../context/MenuContext";
-import { FiLogOut } from "react-icons/fi";
 
 const SidebarMenu = () => {
-  const { openMenu }: any = useContext(MenuContext);
-  return (
-    <>
-      {openMenu ? (
-        <div className="absolute block h-full md:hidden">
-          <SidebarItems />
-        </div>
-      ) : null}
-      <div className="hidden h-full md:block">
-        <SidebarItems />
-      </div>
-    </>
-  );
-};
-
-const SidebarItems = () => {
   const SidebarItems = [
     { icon: <HiOutlineDeviceMobile size={23} />, name: "Electronics" },
     { icon: <RiFridgeFill size={22} />, name: "Appliances" },
@@ -42,7 +24,7 @@ const SidebarItems = () => {
   ];
   return (
     <>
-      <div className="relative h-full w-64 border-t border-neutral-600 bg-neutral-800 md:block">
+      <div className="h-full  w-64 rounded-br-xl border-t border-neutral-600 bg-neutral-800 md:block">
         {SidebarItems.map((value) => (
           <button
             key={value.name}
@@ -52,10 +34,6 @@ const SidebarItems = () => {
             <div className="font-inter font-medium ">{value.name}</div>
           </button>
         ))}
-        <button className="m-2 absolute bottom-3 flex w-28 items-center space-x-2 rounded-md bg-red-500 py-2 pl-3 font-inter text-sm font-medium text-white hover:bg-red-600">
-          <FiLogOut size={18} />
-          <div>LogoOut</div>
-        </button>
       </div>
     </>
   );

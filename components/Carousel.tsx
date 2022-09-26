@@ -12,21 +12,21 @@ const Carousels = () => {
     >
       <picture>
         <img
-          className="h-40 sm:h-48 rounded-md object-cover md:h-72"
+          className="h-40 object-cover sm:h-52 md:h-72 xl:h-full"
           src="/carousel1.jpg"
           alt=""
         />
       </picture>
       <picture>
         <img
-          className="h-40 sm:h-48 rounded-md object-cover md:h-72"
+          className="h-40 object-cover sm:h-52 md:h-72 xl:h-full"
           src="/carousel2.jpg"
           alt=""
         />
       </picture>
       <picture>
         <img
-          className="h-40 sm:h-48 rounded-md object-cover md:h-72"
+          className="h-40 object-cover sm:h-52 md:h-72 xl:h-full"
           src="/carousel3.jpg"
           alt=""
         />
