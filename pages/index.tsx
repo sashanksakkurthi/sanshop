@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
-import HomePage from "../layout/HomePage";
+import Carousels from "../components/carousel";
+import { Navbar } from "../components/navbar";
 
 const Home: NextPage = () => {
-  return <HomePage />;
+  return (
+    <>
+      <Navbar />
+      <Carousels />
+    </>
+  );
 };
 
 export default Home;
