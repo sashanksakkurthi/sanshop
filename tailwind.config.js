@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         BebasNeue: ["Bebas Neue"],
         inter: ["Inter"],
+        roboto: ["Roboto"],
       },
     },
   },

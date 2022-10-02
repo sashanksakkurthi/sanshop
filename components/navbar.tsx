@@ -1,18 +1,10 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { MdOutlineNotifications, MdOutlineClose } from "react-icons/md";
+import { MdOutlineNotifications } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
-import { HiOutlineDeviceMobile } from "react-icons/hi";
-import { RiFridgeFill } from "react-icons/ri";
-import {
-  GiBookshelf,
-  GiRunningShoe,
-  GiClothes,
-  GiSquareBottle,
-} from "react-icons/gi";
-import { MdSportsBasketball, MdOutlineLuggage } from "react-icons/md";
-import { BsMusicPlayer } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
+import { Sidebar } from "./sidebar";
+import { signIn, useSession } from "next-auth/react";
 
 export const Navbar: React.FC<{}> = () => {
   const [openSideBar, setOpenSideBar] = React.useState(false);
@@ -72,6 +64,8 @@ const SearchBox: React.FC<{}> = () => {
 };
 
 const Profile: React.FC<{}> = () => {
+  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
+  const { data: sessions } = useSession();
   return (
     <div className="flex items-center justify-end space-x-4 md:w-1/3">
       <button className="relative">
@@ -86,58 +80,44 @@ const Profile: React.FC<{}> = () => {
           0
         </div>
       </button>
+      {sessions ? (
+        <button onClick={() => setIsProfileOpen(!isProfileOpen)}>
+          <picture>
+            <img
+              className="h-8 w-8 rounded-full"
+              src={sessions.user?.image!}
+              alt=""
+            />
+          </picture>
+        </button>
+      ) : (
+        <button
+          onClick={() => signIn()}
+          className="rounded-md bg-sky-400 px-2 py-1 font-inter text-white hover:bg-sky-500"
+        >
+          Sign In
+        </button>
+      )}
 
-      <button>
-        <picture>
-          <img
-            className="h-8 w-8 rounded-full"
-            src="https://bit.ly/dan-abramov"
-            alt=""
-          />
-        </picture>
-      </button>
-    </div>
-  );
-};
-
-const Sidebar: React.FC<{
-  openSideBar: boolean;
-  setOpenSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-}> = (props) => {
-  const SidebarItems = [
-    { icon: <HiOutlineDeviceMobile size={23} />, name: "Electronics" },
-    { icon: <RiFridgeFill size={22} />, name: "Appliances" },
-    { icon: <GiBookshelf size={23} />, name: "Books" },
-    { icon: <MdSportsBasketball size={23} />, name: "Sports & Outdoors" },
-    { icon: <GiClothes size={23} />, name: "Clothing" },
-    { icon: <GiSquareBottle size={23} />, name: "Beauty & Personal Care" },
-    { icon: <MdOutlineLuggage size={23} />, name: "Luggage & Travel Gear" },
-    { icon: <BsMusicPlayer size={23} />, name: "Musical Instruments" },
-    { icon: <GiRunningShoe size={23} />, name: "Shoes" },
-  ];
-  return (
-    <>
-      {props.openSideBar ? (
-        <div className="fixed top-0 bottom-0 left-0 z-10 h-full w-80 border border-gray-300 bg-white">
-          <button
-            className="absolute top-2 right-1 rounded-md border border-gray-300 p-1"
-            onClick={() => props.setOpenSideBar(!props.openSideBar)}
-          >
-            <MdOutlineClose size={25} className="text-gray-700" />
+      {isProfileOpen ? (
+        <div className="absolute top-[58px] right-1 z-10 flex h-48 w-40 flex-col space-y-1 rounded-md border border-gray-300 bg-white p-2">
+          <button className="rounded-md py-1 font-inter text-gray-800 hover:bg-pink-500 hover:text-white">
+            Profile
           </button>
-          <div className="mt-14">
-            {SidebarItems.map((value) => (
-              <button
-                key={value.name}
-                className="text-md flex h-14 w-full items-center space-x-2 pl-3 text-gray-700 hover:bg-sky-500 hover:text-white"
-              >
-                {value.icon}
-                <div className="font-inter font-medium">{value.name}</div>
-              </button>
-            ))}
-          </div>
+          <button className="rounded-md py-1 font-inter text-gray-800 hover:bg-pink-500 hover:text-white">
+            Orders
+          </button>
+          <button className="rounded-md py-1 font-inter text-gray-800 hover:bg-pink-500 hover:text-white">
+            Settings
+          </button>
+          <button className="rounded-md py-1 font-inter text-gray-800 hover:bg-pink-500 hover:text-white">
+            Contact Us
+          </button>
+          <button className="rounded-md py-1 font-inter text-gray-800 hover:bg-pink-500 hover:text-white">
+            Help
+          </button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
