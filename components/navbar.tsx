@@ -85,7 +85,7 @@ const Profile: React.FC<{}> = () => {
           <picture>
             <img
               className="h-8 w-8 rounded-full"
-              src="https://bit.ly/dan-abramov"
+              src={sessions.user?.image!}
               alt=""
             />
           </picture>
